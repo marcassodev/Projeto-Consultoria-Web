@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultorias Cadastradas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1 class="logo-login">
+            <img src="img/+vida_logo.PNG" alt="+Vida Logo">
+        </h1>
+        <nav>
+            <a href="/index.html">Início</a>
+            <a href="/tabela-consultorias.html">Consultorias</a>
+            <a href="/cadastro-consultorias.html">Nova Consultoria</a>
+            <a href="perguntas-frequentes.html">Profissionais e Dúvidas</a>
+        </nav>
+    </header>
+
+    <main class="tabela-container">
+        <div class="tabela-box">
+            <h2>Consultorias Cadastradas</h2>
+            <div class="filtro-consultorias">
+                <label for="filtroMedico"><strong>Filtrar por Médico:</strong></label>
+                <input type="text" id="filtroMedico" placeholder="Digite o nome do médico...">
+            </div>
+            <table id="tabela-consultorias">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome Paciente</th>
+                        <th>Email</th>
+                        <th>Médico</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Plano</th>
+                        <th>Bandeira</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div id="msg-tabela" class="mensagem"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Mais Vida Consultoria © 2025</p>
+    </footer>
+
+    <script src="/js/tabela_consultorias.js"></script>
+</body>
+</html>
+
+
+

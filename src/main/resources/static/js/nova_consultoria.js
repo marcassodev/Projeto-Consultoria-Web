@@ -1,32 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#form-consultoria");
+const formConsultoria = document.getElementById('form-consultoria');
+const msgConsultoria = document.getElementById('msg-consultoria');
 
-  form.addEventListener("submit", async (e) => {
+formConsultoria.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const consultoria = {
-      paciente: form.paciente.value,
-      tipo: form.tipo.value,
-      sala: form.sala.value,
-      medico: form.medico.value,
-      data: form.data.value,
-      hora: form.hora.value
+    const data = {
+        nomePaciente: formConsultoria.nomePaciente.value.trim(),
+        emailPaciente: formConsultoria.emailPaciente.value.trim(),
+        medico: formConsultoria.medico.value,
+        data: formConsultoria.data.value,
+        hora: formConsultoria.hora.value,
+        plano: formConsultoria.plano.value.toUpperCase(),
+        numeroCartao: formConsultoria.numeroCartao.value.trim(),
+        cvv: formConsultoria.cvv.value.trim(),
+        empresaCartao: formConsultoria.empresaCartao.value.trim(),
+        cliente: {
+            email: formConsultoria.emailPaciente.value.trim()
+        }
     };
 
-    const resp = await fetch("http://localhost:8080/api/consultorias", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(consultoria)
-    });
+    try {
+        const res = await fetch('/api/consultorias', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
 
-    if (resp.ok) {
-      alert("Consultoria cadastrada com sucesso!");
-      form.reset();
-    } else {
-      alert("Erro ao salvar consultoria.");
+        const result = await res.json();
+
+        if (res.ok) {
+            msgConsultoria.style.color = 'green';
+            msgConsultoria.innerText = 'Consultoria criada com sucesso!';
+            formConsultoria.reset();
+        } else {
+            msgConsultoria.style.color = 'red';
+            msgConsultoria.innerText = result.error || 'Erro ao criar consultoria.';
+        }
+    } catch (error) {
+        msgConsultoria.style.color = 'red';
+        msgConsultoria.innerText = 'Erro de conexão com o servidor.';
+        console.error(error);
     }
-  });
 });
+
+
+
 
 
 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nova Consultoria</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo-login">
+                <img src="img/+vida_logo.PNG" alt="+Vida Logo">
+            </h1>
+            <nav>
+                <a href="/index.html">Início</a>
+                <a href="/tabela-consultorias.html">Consultorias</a>
+                <a href="/cadastro-consultorias.html">Nova Consultoria</a>
+                <a href="perguntas-frequentes.html">Profissionais e Dúvidas</a>
+            </nav>
+        </header>
+
+        <main class="main-container">
+            <div class="form-box">
+                <h2>Nova Consultoria</h2>
+
+                <div id="msg-consultoria" class="mensagem" ></div>
+
+                <form id="form-consultoria">
+                    <label for="nomePaciente">Nome do Cliente:</label>
+                    <input type="text" id="nomePaciente" name="nomePaciente" required>
+
+                    <label for="emailPaciente">Email do Cliente:</label>
+                    <input type="email" id="emailPaciente" name="emailPaciente" required>
+
+                    <label for="medico">Profissional:</label>
+                    <select id="medico" name="medico" required>
+                        <option value="">-- Escolha um profissional --</option>
+                        <option value="Pedro Barros">Pedro Barros – Educação Física</option>
+                        <option value="Ana Costa">Ana Costa – Nutricionista</option>
+                        <option value="João Pereira">João Pereira – Fisioterapeuta</option>
+                        <option value="Mariana Silva">Mariana Silva – Psicóloga</option>
+                        <option value="Lucas Almeida">Lucas Almeida – Nutricionista</option>
+                        <option value="Carla Nunes">Carla Nunes – Educação Física</option>
+                    </select>
+
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+
+                    <label for="plano">Plano:</label>
+                    <select id="plano" name="plano" required>
+                        <option value="">Selecione...</option>
+                        <option value="SEMANAL">Plano Semanal</option>
+                        <option value="MENSAL">Plano Mensal</option>
+                        <option value="ANUAL">Plano Anual</option>
+                    </select>
+
+                    <label for="numeroCartao">Número do Cartão:</label>
+                    <input type="text" id="numeroCartao" name="numeroCartao" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" maxlength="3" required>
+
+                    <label for="empresaCartao">Bandeira do Cartão:</label>
+                    <input type="text" id="empresaCartao" name="empresaCartao" placeholder="Visa, MasterCard..." required>
+
+                    <button type="submit">Criar Consultoria</button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>Mais Vida Consultoria © 2025</p>
+        </footer>
+
+        <script src="/js/nova_consultoria.js"></script>
+    </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profissionais e Dúvidas</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1 class="logo-login">
+                <img src="img/+vida_logo.PNG" alt="+Vida Logo">
+            </h1>
+            <nav>
+                <a href="index.html">Página Inicial</a>
+                <a href="tabela-consultorias.html">Tabela de Consultorias</a>
+                <a href="cadastro-consultorias.html">Nova Consultoria</a>
+                <a href="perguntas-frequentes.html">Profissionais e Dúvidas</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero red-gradient">
+                <h2>Profissionais +Vida</h2>
+                <p>Conheça nossa equipe de especialistas em saúde e bem-estar.</p>
+            </section>
+
+            <section class="profissionais-grid">
+                <div class="profissional-card">
+                    <img src="img/medico1.jpeg" alt="Pedro Barros">
+                    <h3>Pedro Barros</h3>
+                    <p><strong>Educação Física</strong></p>
+                    <p>Treinos personalizados, musculação e natação.</p>
+                </div>
+                <div class="profissional-card">
+                    <img src="img/medico2.jpeg" alt="Ana Costa">
+                    <h3>Ana Costa</h3>
+                    <p><strong>Nutricionista</strong></p>
+                    <p>Especialista em reeducação alimentar e dietas saudáveis.</p>
+                </div>
+                <div class="profissional-card">
+                    <img src="img/medico3.jpeg" alt="João Pereira">
+                    <h3>João Pereira</h3>
+                    <p><strong>Fisioterapeuta</strong></p>
+                    <p>Reabilitação física e fortalecimento muscular.</p>
+                </div>
+                <div class="profissional-card">
+                    <img src="img/medico4.jpeg" alt="Mariana Silva">
+                    <h3>Mariana Silva</h3>
+                    <p><strong>Psicóloga</strong></p>
+                    <p>Foco em saúde mental e motivação pessoal.</p>
+                </div>
+                <div class="profissional-card">
+                    <img src="img/medico5.jpeg" alt="Lucas Almeida">
+                    <h3>Lucas Almeida</h3>
+                    <p><strong>Nutricionista</strong></p>
+                    <p>Suplementação e dietas esportivas.</p>
+                </div>
+                <div class="profissional-card">
+                    <img src="img/medico6.jpeg" alt="Carla Nunes">
+                    <h3>Carla Nunes</h3>
+                    <p><strong>Educação Física</strong></p>
+                    <p>Treinos funcionais e resistência corporal.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <h2>Dúvidas Frequentes</h2>
+                <div class="faq">
+                    <div class="faq-item">
+                        <h3>🩺 Como funcionam as consultorias?</h3>
+                        <p>Após o cadastro, você escolhe um profissional e um plano. A consulta é marcada online e pode ser feita presencialmente ou por vídeo.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>💳 Quais formas de pagamento são aceitas?</h3>
+                        <p>Atualmente aceitamos cartões Visa, MasterCard e etc.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>👩‍⚕️ Os profissionais são credenciados?</h3>
+                        <p>Sim, todos os nossos profissionais possuem certificações e formação na área.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🏋️‍♀️ Posso escolher mais de um profissional?</h3>
+                        <p>Claro! Você pode se consultar com diferentes profissionais.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 +Vida Consultorias - Todos os direitos reservados.</p>
+        </footer>
+
+        <script>
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const p = item.querySelector('p');
+                    if (p.style.display === 'block') {
+                        p.style.display = 'none';
+                    } else {
+                        p.style.display = 'block';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+

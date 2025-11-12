@@ -1,8 +1,9 @@
-
 package com.maisVida.consultoria.controller;
 
 import com.maisVida.consultoria.model.Cliente;
-import com.maisVida.consultoria.repository.ClienteRepository;
+import com.maisVida.consultoria.service.ClienteService;
+import java.util.Collections;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,17 +11,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/api/clientes")
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
     @PostMapping
-    public ResponseEntity<Cliente> salvarCliente(@RequestBody Cliente cliente) {
-        Cliente salvo = clienteRepository.save(cliente);
-        return ResponseEntity.ok(salvo);
+    public ResponseEntity<Map<String, String>> criarCliente(@RequestBody Cliente cliente) {
+        try {
+            clienteService.criarCliente(cliente);
+            return ResponseEntity.ok(Collections.singletonMap("message", "Cadastro realizado com sucesso!"));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Collections.singletonMap("error", e.getMessage()));
+        }
     }
+
 }

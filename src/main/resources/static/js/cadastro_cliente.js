@@ -1,38 +1,58 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#form-cliente");
+const formCadastro = document.getElementById('form-cadastro');
+const msgCadastro = document.getElementById('msg-cadastro');
 
-  form.addEventListener("submit", async (e) => {
+formCadastro.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const nome = form.querySelector("input[name='nome']").value.trim();
-    const email = form.querySelector("input[name='email']").value.trim();
-    const telefone = form.querySelector("input[name='telefone']").value.trim();
-    const cpf = form.querySelector("input[name='cpf']").value.trim();
-    const nascimento = form.querySelector("input[name='nascimento']").value;
+    const data = {
+        nome: formCadastro.nome.value.trim(),
+        email: formCadastro.email.value.trim(),
+        senha: formCadastro.senha.value.trim(),
+        telefone: formCadastro.telefone.value.trim(),
+        cpf: formCadastro.cpf.value.trim(),
+        nascimento: formCadastro.nascimento.value
+    };
 
-    if (!nome || !email || !telefone || !cpf || !nascimento) {
-      alert("Preencha todos os campos!");
-      return;
+    if (data.nome.length > 100) {
+        msgCadastro.style.color = 'red';
+        msgCadastro.innerText = 'Nome não pode ter mais de 100 caracteres!';
+        return;
     }
-
-    const cliente = { nome, email, telefone, cpf, nascimento };
+    if (data.cpf.length > 14) {
+        msgCadastro.style.color = 'red';
+        msgCadastro.innerText = 'CPF não pode ter mais de 14 caracteres!';
+        return;
+    }
+    if (data.telefone && data.telefone.length > 14) {
+        msgCadastro.style.color = 'red';
+        msgCadastro.innerText = 'Telefone não pode ter mais de 14 caracteres!';
+        return;
+    }
+    if (!data.nome || !data.email || !data.senha || !data.cpf) {
+        msgCadastro.style.color = 'red';
+        msgCadastro.innerText = 'Preencha todos os campos obrigatórios!';
+        return;
+    }
 
     try {
-      const response = await fetch("/clientes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cliente)
-      });
+        const res = await fetch('/api/clientes', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
 
-      if (response.ok) {
-        alert("Cliente cadastrado com sucesso!");
-        form.reset();
-      } else {
-        alert("Erro ao cadastrar cliente!");
-      }
+        const result = await res.json();
+        if (res.ok) {
+            msgCadastro.style.color = 'green';
+            msgCadastro.innerText = result.message;
+        } else {
+            msgCadastro.style.color = 'red';
+            msgCadastro.innerText = result.error;
+        }
+
     } catch (error) {
-      console.error("Erro:", error);
-      alert("Erro de conexão com o servidor.");
+        msgCadastro.style.color = 'red';
+        msgCadastro.innerText = 'Erro ao cadastrar. Tente novamente.';
+        console.error(error);
     }
-  });
 });

@@ -1,141 +1,395 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #fafafa;
-  color: #222;
+/* ------------------ Base ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* CABEÇALHO */
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ------------------ Header ------------------ */
 header {
-  background-color: #b30000;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+    background-color: #c00;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 1.6rem;
 }
 
 nav a {
-  color: white;
-  margin: 0 0.8rem;
-  text-decoration: none;
-  font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
+    color: #ffe5e5;
 }
 
-/* RODAPÉ */
+/* ------------------ Containers ------------------ */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+    padding: 40px 15px;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border: 2px solid #c00;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.form-box h2 {
+    color: #c00;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ------------------ Formulários ------------------ */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c00;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #c00;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #a00;
+    transform: scale(1.02);
+}
+
+/* ------------------ Mensagens ------------------ */
+.mensagem,
+#msg,
+#msg-login,
+#msg-cadastro,
+#msg-consultoria {
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
+
+.sucesso { color: green; }
+.erro { color: red; }
+
+/* ------------------ Tabelas ------------------ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #c00;
+    text-align: center;
+}
+
+th {
+    background-color: #c00;
+    color: #fff;
+    font-size: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe5e5;
+}
+
+tr:hover {
+    background-color: #fdd;
+}
+
+/* ------------------ Botões de ação (ex: excluir) ------------------ */
+.botao-excluir {
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-excluir:hover {
+    background-color: #a00;
+}
+
+/* ------------------ Footer ------------------ */
 footer {
-  background-color: #b30000;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #c00;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 40px;
 }
 
-/* CONTEÚDO PRINCIPAL */
-main {
-  padding: 2rem;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-}
-
-.hero h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #b30000;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* CARDS */
+/* ------------------ Cards (index e planos) ------------------ */
 .cards {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 2rem auto;
-  max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    justify-content: center;
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-  width: 300px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1 1 280px;
+    background: #fff;
+    border: 1px solid #c00;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.card img {
-  width: 400px;
-  height: 200px;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-
+.card h3 {
+    color: #c00;
+    margin-bottom: 10px;
 }
 
-/* TABELAS */
-.tabela-consultorias {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 2rem;
+/* ------------------ Profissionais ------------------ */
+.profissionais-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px;
 }
 
-.tabela-consultorias th, .tabela-consultorias td {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  text-align: center;
+.profissional-card {
+    flex: 1 1 280px;
+    border: 1px solid #c00;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.tabela-consultorias th {
-  background-color: #b30000;
-  color: white;
+.profissional-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;  /* mantém tudo visível */
+    background-color: #fff; /* fundo branco para evitar “buracos” */
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-/* FORMULÁRIOS */
-.form-box {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: auto;
+/* ------------------ FAQ ------------------ */
+.faq-section {
+    padding: 40px 20px;
+    background-color: #ffe5e5;
 }
 
-input, select, textarea {
-  padding: 0.6rem;
-  border-radius: 5px;
-  border: 1px solid #aaa;
+.faq-section h2 {
+    text-align: center;
+    color: #c00;
+    margin-bottom: 20px;
 }
 
-button {
-  background-color: #b30000;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+.faq-item {
+    background: #fff;
+    border: 1px solid #c00;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #7a0000;
+.faq-item:hover {
+    background-color: #fdd;
 }
 
-.logo img {
-  height: 60px;
-  width: auto;
+.faq-item p {
+    display: none;
+    margin-top: 10px;
+}
+
+/* ------------------ Responsividade ------------------ */
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .cards, .profissionais-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-box {
+        max-width: 95%;
+        padding: 20px;
+    }
+}
+
+/* ------------------ Ajuste para Tabela de Consultorias ------------------ */
+.tabela-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 15px;
+    min-height: 80vh;
+}
+
+.tabela-box {
+    background-color: #fff;
+    border: 2px solid #c00;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.tabela-box h2 {
+    text-align: center;
+    color: #c00;
+    margin-bottom: 20px;
+}
+
+/* Melhorando aparência da tabela dentro da box */
+.tabela-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-box th,
+.tabela-box td {
+    padding: 12px;
+    border: 1px solid #c00;
+    text-align: center;
+}
+
+.tabela-box th {
+    background-color: #c00;
+    color: #fff;
+}
+
+.tabela-box tr:nth-child(even) {
+    background-color: #ffe5e5;
+}
+
+.tabela-box tr:hover {
+    background-color: #fdd;
+}
+
+/* ------------------ Hero Principal (Index) ------------------ */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(90deg, #ffefef, #fff);
+}
+
+.hero h2 {
+    font-size: 42px;
+    color: #c00;             /* vermelho principal */
+    font-weight: 800;        /* negrito forte */
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* ------------------ Seção de Planos ------------------ */
+.planos {
+    text-align: center;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.planos h2 {
+    color: #c00;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.planos .cards {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-excluir {
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-excluir:hover {
+    background-color: #a00;
+}
+
+.filtro-consultorias {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filtro-consultorias input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #c00;
+    border-radius: 5px;
+    font-size: 14px;
 }
