@@ -12,11 +12,10 @@ Etapa de realização do projeto para um Projeto Integrador, feito com a intenç
 - JavaScript.
 
 #### Back-End ####
--Java
--Javascript.
+- Java
+- Javascript.
 
 #### Demais Ferramentas ####
--Banco de Dados Relacional
--PostMan
--Testes Unitários
--JSON
+- Banco de Dados Relacional
+- Testes Unitários
+- JSON
